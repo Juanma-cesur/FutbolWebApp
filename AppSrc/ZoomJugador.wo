@@ -79,7 +79,7 @@ Object oZoomJugador is a cWebView
             Set peLabelPosition to lpTop
             Set psLabel to "EquipoID"
             Set pbPromptButton to True
-
+  
 // ToDo: Fill in the from-child parent Select view object name for navigate forward
 //            WebRegisterPath ntNavigateForward oSelectView
 
@@ -87,6 +87,17 @@ Object oZoomJugador is a cWebView
                 Send NavigatePath
             End_Procedure
         End_Object 
+          Use cWebButton.pkg
+         Object oBotonPosiciones is a cWebButton //Botón que lleva a selectPosicion al darle a algun jugador.
+                                                 //Existe una relación muchos a muchos entre Jugador y Posicion, implementada mediante la tabla JugadorPosicion 
+                                                 //Un jugador puede ocupar varias posiciones y una posición puede estar asociada a varios jugadores.
+            Set psCaption to "Ver Posiciones"    
+            WebRegisterPath ntNavigateForward oSelectPosicion
+
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+        End_Object
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup

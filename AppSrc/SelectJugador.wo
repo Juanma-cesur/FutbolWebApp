@@ -43,7 +43,8 @@ Object oSelectJugador is a cWebView
         Set pbFillHeight to True
         Set pbShowHeader to False
         Set piSortColumn to 0
-
+        WebRegisterPath ntNavigateForward oZoomJugador
+        
         Object ojugadorID is a cWebColumn
             Entry_Item jugador.ID
             Set psCaption to "jugador.ID"
@@ -84,7 +85,7 @@ Object oSelectJugador is a cWebView
             Set peAlign to alignRight
 
 // ToDo: Fill in the from-main Zoom view object name for navigate forward
-//            WebRegisterPath ntNavigateForward oZoomView
+            WebRegisterPath ntNavigateForward oZoomJugador
 
             Procedure OnClick
                 Send NavigatePath
@@ -119,10 +120,7 @@ Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not y
                     Case Break
 
                 Case Else // must be nfUndefined
-// ToDo: Fill in the from-parent child Select view object name for navigate forward
-Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not yet defined"
-//                    Send NavigateForward of oSelectView Self
-
+                    Send NavigatePath
             Case End
         End_Procedure
 
@@ -149,7 +147,7 @@ Error DFERR_PROGRAM "NavigateForward to this from-parent child Select view not y
             Set psCaption to "New"
 
 // ToDo: Fill in the from-main Zoom view object name for navigate forward
-//            WebRegisterPath ntNavigateForward oZoomView
+            WebRegisterPath ntNavigateForward oZoomJugador
 
             Procedure OnClick
                 Send NavigatePath
